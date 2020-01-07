@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Encrypter Demo UI</title>
+
+    <!-- th:href.. is needed because otherwise it won't find the external finds when the application is deployed as a .war on an external Tomcat server -->
+    <link href="../static/css/encrypterDemoUi.css" th:href="@{css/encrypterDemoUi.css}" rel="stylesheet" media="screen"/>
+    <script type="text/javascript" th:src="@{/js/encrypterDemoUi.js}"></script>
+</head>
+
+<body onload="populateTable()">
+<div class="container">
+    <h2 id="uiTitle">Encrypter Demo</h2>
+
+    <form id="dataForm">
+        <input type="text" id="userInputField" placeholder="User">
+        <input type="password" id="passwordInputField" placeholder="Password">
+        <br>
+        <input type="text" id="dataInputField" placeholder="Data">
+        <br>
+        <!-- The default type for a button is submit. When a submit button is pressed, the page will be REFRESHED.-->
+        <button type="button" value="Encrypt" id="encryptButton" onclick="encryptButtonClickFetch()">Encrypt</button>
+        <button type="button" value="Decrypt" id="decryptButton" onclick="decryptButtonClickFetch()">Decrypt</button>
+    </form>
+
+
+    <table id="resultsTable">
+        <thead>
+        <tr>
+            <th class="dataColumn">Data</th>
+            <th>User</th>
+        </tr>
+        </thead>
+        <tbody id="resultsTableBody">
+
+        </tbody>
+    </table>
+
+    <!-- Results block -->
+    <!-- TODO: jQuery DataTable has embedded pagination, sorting, etc functionality -->
+
+</div>
+</body>
+
+<footer class="footer">
+    Author: Märten Heinsalu
+    <br>
+    2020
+</footer>
+
+</html>
